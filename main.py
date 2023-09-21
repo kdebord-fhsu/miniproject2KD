@@ -2,9 +2,9 @@
 # Kelton DeBord
 # Mini Project 2
 import pandas as pd
-
-#(5/5 points) Initial comments with your name, class and project at the top of your .py file.
-#(5/5 points) Proper import of packages used.
+import matplotlib.pyplot as plt
+from pathlib import Path
+#What League of Legends class has the highest win rate?
 
 #(20/20 points) Using a data source of your choice, such as data from data.gov or using the Faker package, generate or retrieve some data for creating basic statistics on. This will generally come in as json data, etc.
 #(10/10 points) Store this information in Pandas dataframe. These should be 2D data as a dataframe, meaning the data is labeled tabular data.
@@ -14,6 +14,15 @@ import pandas as pd
 #(10/10 points) I will be checking out the master branch of your project. Please be sure to include a requirements.txt file which contains all the packages that need installed. You can create this fille with the output of pip freeze at the terminal prompt.
 #(20/20 points) There should be a README.md file in your project that explains what your project is, how to install the pip requirements, and how to execute the program. Please use the GitHub flavor of Markdown. Be thorough on the explanations.
 
+# Create our /charts folder
+try:
+    Path("charts").mkdir()
+except FileExistsError:
+    pass
+
+
+
 #Converts League of Legends csv to readable file
 data = pd.read_csv('LoL12.1.csv')
 print(data)
+
