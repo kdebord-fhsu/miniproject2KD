@@ -20,9 +20,21 @@ try:
 except FileExistsError:
     pass
 
-
-
 #Converts League of Legends csv to readable file
 data = pd.read_csv('LoL12.1.csv')
-print(data)
+
+#Groups data by their classes and calculates the mean win rate for each class
+class_win_rates = data.groupby('Class')['Win Rate'].mean()
+
+# Create a chart to visualize the class win rates
+plt.figure(figsize=(10, 6))
+class_win_rates.plot(kind='bar', color='skyblue')
+plt.title('League of Legends Win Rates by Class')
+plt.xlabel('Class')
+plt.ylabel('Win Rate')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Displays the created chart
+plt.show()
 
